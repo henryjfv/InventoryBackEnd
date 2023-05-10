@@ -12,6 +12,7 @@ export const printer = async (content, companyName, email) => {
     const fileName = `${companyName}${Date.now()}.pdf`
     const pathFile = resolve(dirname(fileURLToPath(import.meta.url)), `../assets/pdf/${fileName}`)
     // Create a document
+    console.log("🚀 ~ file: makePdf.js:15 ~ printer ~ pathFile:", pathFile)
     const doc = new PDF();
 
     // Pipe its output somewhere, like to a file or HTTP response
