@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/7aa93eb3-4f24-4705-8c92-beb7f2643a25/resourceGroups/MySQL-DB/providers/Microsoft.Web/sites/nodehenrylitethinking",
+    "appService.deploySubpath": "."
+}

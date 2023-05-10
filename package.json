@@ -1,0 +1,63 @@
+{
+  "name": "inventorybackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "start:prd": "pm2 delete all && pm2 start ./app.js --name=app",
+    "dev": "nodemon app.js",
+    "test:jest": "export NODE_OPTIONS=--experimental-vm-modules && npx jest",
+    "test:node": "node ./test/node.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henryjfv/InventoryBackEndNodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henryjfv/InventoryBackEndNodejs/issues"
+  },
+  "homepage": "https://github.com/henryjfv/InventoryBackEndNodejs#readme",
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "cors": "2.8.5",
+    "dotenv": "16.0.3",
+    "express": "4.18.2",
+    "express-validator": "6.15.0",
+    "jsonwebtoken": "9.0.0",
+    "mongoose": "7.0.1",
+    "nodemailer": "^6.9.1",
+    "nodemailer-sendgrid": "^1.0.3",
+    "nodemon": "2.0.21",
+    "pdfkit": "^0.13.0",
+    "pdfkit-construct": "^1.2.3",
+    "swagger-jsdoc": "6.2.8",
+    "swagger-ui-express": "4.6.2",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "jest": "29.5.0",
+    "supertest": "6.3.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageReporters": [
+      "json",
+      "html"
+    ],
+    "globalTeardown": "./global-kill.js",
+    "modulePathIgnorePatterns": [
+      "../test/node.test.js"
+    ]
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}

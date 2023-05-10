@@ -1,0 +1,90 @@
+openapi: 3.0.0
+info:
+  title: API for a simple company with a inventory
+  description: just is a test for work vacancy
+  version: 1.0.0
+servers:
+  - url: http://localhost:3002
+    description: baseApi
+paths:
+  /auth/register:
+    post:
+      tags: 
+        - auth
+      summary: Create a new user.
+      description: Route for create a new user.
+      responses:
+        '201':
+          description: Successfully user crated
+        '403':
+          description: Validation error
+      requestBody:
+          content:
+            application/json:
+              schema:
+                    $ref: '#/components/schemas/user'
+  /auth/login:
+    post:
+      tags:
+        - auth
+      summary: "Login user"
+      description:  Session init to new user and get a new session token
+      responses:
+        '200':
+          description: Get a new object with the information added
+        '403':
+          description: Validation error.
+      requestBody:
+          content:
+            application/json:
+              schema:
+                    $ref: '#/components/schemas/user'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    user:
+      type: object
+      required:
+      - email
+      - password
+      - role
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+    company:
+      type: object
+      required:
+      - legalNumber
+      - name
+      properties:
+        id:
+          type: integer
+        legalNumber:
+          type: string
+        name:
+          type: string
+        address:
+          type: string
+        phone:
+          type: string
+    inventory:
+      type: object
+      required:
+      - product
+      - total
+      - companyId
+      properties:
+        product:
+          type: string
+        total:
+          type: string
+        companyId:
+          type: integer
