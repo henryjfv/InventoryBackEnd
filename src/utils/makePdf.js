@@ -17,7 +17,9 @@ export const printer = async (content, companyName, email) => {
 
     // Pipe its output somewhere, like to a file or HTTP response
     // See below for browser usage
-    doc.pipe(fs.createWriteStream(pathFile));
+    doc.pipe(fs.createWriteStream(pathFile, {
+      flags: 'wx',
+    }));
 
     // doc.text(100, 100, `Date ${date.toLocaleDateString()}`)
     doc.setDocumentHeader({}, () => {
