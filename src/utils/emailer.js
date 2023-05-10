@@ -461,7 +461,7 @@ export const sendEmail = async (email, companyName, pathFile) => {
         //Delete file
         fs.unlinkSync(pathFile)
 
-      }, 3000);
+      }, 5000);
       return response
     }
     console.log('🚀 ~ file: emailer.js:18 ~ sendEmail ~ pathFile:', 'File do not Exist')

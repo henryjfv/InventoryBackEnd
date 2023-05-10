@@ -53,7 +53,7 @@ export const printer = async (content, companyName, email) => {
       console.log('Sending to email ', email);
       const timeOut = setTimeout(async () => {
         await sendEmail(email, companyName, pathFile)
-      }, 5000);
+      }, 6000);
     }
 
     return { status: 200, pathFile }
